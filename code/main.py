@@ -29,6 +29,7 @@ class Game:
             #this will make the sprites update with delta time so the time that passes between every frame will be very short
             self.all_sprites.update(dt)
             #draw
+            self.display_surface.fill('black')
             self.all_sprites.draw(self.display_surface)
             pygame.display.update()
         pygame.quit()
