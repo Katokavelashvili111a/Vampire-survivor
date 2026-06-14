@@ -29,7 +29,7 @@ class Game:
             CollisionSprite((obj.x, obj.y), obj.image, (self.all_sprites, self.collision_sprites))
             
         for x, y, image in map.get_layer_by_name('Ground').tiles():
-            Sprite((x,y), image, self.all_sprites)
+            Sprite((x * TILE_SIZE,y * TILE_SIZE), image, self.all_sprites)
 
 
 
