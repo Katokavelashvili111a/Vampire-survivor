@@ -24,10 +24,11 @@ class Player(pygame.sprite.Sprite):
         self.rect.y += self.direction.y * self.speed * dt
         self.collision('vertical') #checks collision on y axis
 
-    def collision(self, direstion):
+    def collision(self, direction):
         for sprite in self.collision_sprites:
             if sprite.rect.colliderect(self.rect):
-                print('overlap')
+                if direction == 'horizontal':
+                    if self.direction.x > 0: self.rect.right = self.rect.left #checks if player is left to right of obsticle
 
     def update(self, dt):
         self.input()
