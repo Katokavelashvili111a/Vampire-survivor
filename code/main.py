@@ -50,7 +50,7 @@ class Game:
             self.all_sprites.update(dt)
             #draw
             self.display_surface.fill('black')
-            self.all_sprites.draw()
+            self.all_sprites.draw(self.player.rect.center) ##camera should follow the player
             pygame.display.update()
         pygame.quit()
 
