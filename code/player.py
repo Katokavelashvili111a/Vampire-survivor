@@ -28,7 +28,7 @@ class Player(pygame.sprite.Sprite):
         for sprite in self.collision_sprites:
             if sprite.rect.colliderect(self.rect):
                 if direction == 'horizontal':
-                    if self.direction.x > 0: self.rect.right = self.rect.left #checks if player is left to right of obsticle
+                    if self.direction.x > 0: self.rect.right = sprite.rect.left #checks if player is left to right of obsticle
 
     def update(self, dt):
         self.input()
