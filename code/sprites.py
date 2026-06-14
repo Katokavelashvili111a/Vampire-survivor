@@ -1,7 +1,12 @@
 from settings import *
 
-class CollisionSprite(pygame.sprite.Sprite):
-    def __init__(self, pos, surface, groups):
+class Sprote(pygame.sprite.Sprite):
+    def __init__(self, pos, surf, groups):
         super().__init__(groups)
-        self.image = surface
+        self.image = surf
+        self. rect = self.image.get_frect(center = pos)
+class CollisionSprite(pygame.sprite.Sprite):
+    def __init__(self, pos, surf, groups):
+        super().__init__(groups)
+        self.image = surf
         self. rect = self.image.get_frect(center = pos)
