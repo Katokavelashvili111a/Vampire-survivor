@@ -24,6 +24,8 @@ class Game:
             x,y = randint(0, WINDOW_WIDTH), randint(0, WINDOW_HEIGHT) #will place collisions at random locations on the x and y axis
             w,h = randint(60,100), randint(50,100)
             CollisionSprite((x,y), (w,h), (self.all_sprites, self.collision_sprites))
+    def setup(self):
+        map = load_pygame(join('data', 'maps', 'world.tmx'))
 
     def run(self):
         while self.running:
