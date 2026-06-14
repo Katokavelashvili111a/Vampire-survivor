@@ -16,7 +16,7 @@ class Game:
         self.running = True
 
         #groups? <-- figure out what this means!!
-        self.all_sprites = pygame.sprite.Group()
+        self.all_sprites = AllSprites()
         self.collision_sprites = pygame.sprite.Group()
 
         self.setup()
@@ -50,7 +50,7 @@ class Game:
             self.all_sprites.update(dt)
             #draw
             self.display_surface.fill('black')
-            self.all_sprites.draw(self.display_surface)
+            self.all_sprites.draw()
             pygame.display.update()
         pygame.quit()
 
