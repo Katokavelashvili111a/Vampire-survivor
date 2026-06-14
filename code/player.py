@@ -6,7 +6,7 @@ class Player(pygame.sprite.Sprite):
         self.image = pygame.image.load(join('images', 'player', 'down', '0.png')).convert_alpha()
         self.rect = self.image.get_frect(center = pos)
         #pos = position (will be fetched from parameter)
-        self.hitbox_rect = self.rect.inflate(-60, -60) #changes hitbox of the rectangel so the annoying white cpace is gone 
+        self.hitbox_rect = self.rect.inflate(-60, -90) #changes hitbox of the rectangel so the annoying white cpace is gone 
        
        #movement
         self.direction = pygame.Vector2() 
