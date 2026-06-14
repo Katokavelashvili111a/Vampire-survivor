@@ -6,6 +6,7 @@ class Player(pygame.sprite.Sprite):
         self.image = pygame.image.load(join('images', 'player', 'down', '0.png')).convert_alpha()
         self.rect = self.image.get_frect(center = pos)
         #pos = position (will be fetched from parameter)
+        self.hitbox_rect = self.rect.inflate(-40, 0) #changes hitbox of the rectangel so the annoying white cpace is gone 
        
        #movement
         self.direction = pygame.Vector2() 
@@ -19,9 +20,9 @@ class Player(pygame.sprite.Sprite):
         self.direction = self.direction.normalize() if self.direction else self.direction #the movemetn speed becomes constant so it doesnt move at different speeds depending on the direction
     #def is define for methods. remember
     def move(self, dt):
-        self.rect.x += self.direction.x * self.speed * dt #basically new position = old position + direction x speed x time
+        self.hitbox_rect.x += self.direction.x * self.speed * dt #basically new position = old position + direction x speed x time
         self.collision('horizontal') #checks collision on x axis
-        self.rect.y += self.direction.y * self.speed * dt
+        self.hitbox_rect.y += self.direction.y * self.speed * dt
         self.collision('vertical') #checks collision on y axis
 
     def collision(self, direction):
