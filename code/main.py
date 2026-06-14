@@ -1,6 +1,7 @@
 from settings import *
 from player import Player
 from sprites import *
+from pytmx.util_pygame import load_pygame
 
 from random import randint
 
