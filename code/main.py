@@ -4,13 +4,13 @@ class Game:
     def __init__(self):
         pygame.init()
         self.display_surface = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
-        pygame.display.sset_caption('Survivor')
+        pygame.display.set_caption('Survivor')
         self.clock = pygame.time.Clock()
         self.running = True
     
     def run(self):
         while self.running:
-            #dt
+            #delta ttime
             dt = self.clock.tick() / 1000
 
             #event loop 
@@ -21,6 +21,11 @@ class Game:
             #update
 
             #draw
-            pygame.quit()
+            pygame.display.update()
+        pygame.quit()
+
+if __name__ == '__main__':
+    game = Game()
+    game.run()
             
 
