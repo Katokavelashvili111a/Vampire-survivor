@@ -7,6 +7,6 @@ class AllSprites(pygame.sprite.Group):
         self.offset = pygame.Vector2()
 
     def draw(self, target_pos):
-        self.offset.x = target_pos[0]
+        self.offset.x = -(target_pos[0] - WINDOW_WIDTH / 2)
         for sprite in self:
             self.display_surface.blit(sprite.image, sprite.rect.topleft + self.offset)
