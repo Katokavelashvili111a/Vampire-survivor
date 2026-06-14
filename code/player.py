@@ -12,9 +12,9 @@ class Player(pygame.sprite.Sprite):
 
     def input(self):
         keys = pygame.key.get_pressed() #i think this means it reads whichever key is inputted, sso pressed....
-        self.direction.x = int(keys[pygame.K_RIGHT]) - int(keys[pygame.K_LEFT])
-        self.direction.y = int(keys[pygame.K_DOWN]) - int(keys[pygame.K_UP])
-        self.direction = self.direction.normalize() if self.direction else self.direction
+        self.direction.x = int(keys[pygame.K_RIGHT]) - int(keys[pygame.K_LEFT]) #movement on x axis
+        self.direction.y = int(keys[pygame.K_DOWN]) - int(keys[pygame.K_UP]) #movement on y axis
+        self.direction = self.direction.normalize() if self.direction else self.direction #the movemetn speed becomes constant so it doesnt move at different speeds depending on the direction
     #def is define for methods. remember
     def move(self, dt):
         self.rect.center += self.direction * self.speed * dt #basically new position = old position + direction x speed x time
