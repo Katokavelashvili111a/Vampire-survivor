@@ -20,10 +20,14 @@ class Player(pygame.sprite.Sprite):
     #def is define for methods. remember
     def move(self, dt):
         self.rect.x += self.direction.x * self.speed * dt #basically new position = old position + direction x speed x time
+        self.collision('horizontal') #checks collision on x axis
         self.rect.y += self.direction.y * self.speed * dt
+        self.collision('vertical') #checks collision on y axis
 
     def collision(self, direstion):
-        pass
+        for sprite in self.collision_sprites:
+            if sprite.rect.colliderect(self.rect):
+                print('overlap')
 
     def update(self, dt):
         self.input()
