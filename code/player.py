@@ -23,6 +23,8 @@ class Player(pygame.sprite.Sprite):
                 for file_name in file_names:
                     full_path = join(folder_path, file_name)
                     surf = pygame.image.load(full_path).convert_alpha()
+                    self.frames[state].append(surf)
+        print(self)
         
 
     def input(self):
