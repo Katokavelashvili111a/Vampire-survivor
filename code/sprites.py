@@ -53,3 +53,9 @@ class Bullet(pygame.sprite.Sprite):
        super().__init__(groups)
        self.image = surf
        self.rect = self.image.get_frect(center = pos)
+
+       self.direction = direction
+       self.speed = 1200
+
+    def update(self, dt):
+        self.rect.center += self.direction * self.speed * dt
