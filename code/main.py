@@ -26,6 +26,12 @@ class Game:
         self.can_shoot = True
         self.shoot_time = 0
         self.gun_cooldown = 100
+
+        # enemy timer
+
+        self.enemy_event = pygame.event.custom_type()
+        pygame.time.set_timer(self, self.enemy_event, 300)
+        self.spawn_positions = 
     
     def load_images(self):
         self.bullet_surf = pygame.image.load(join('images', 'gun', 'bullet.png')).convert_alpha()
