@@ -25,7 +25,7 @@ class Game:
         #gun timer
         self.can_shoot = True
         self.shoot_time = 0
-        self.gun_cooldown = 400
+        self.gun_cooldown = 100
     
     def load_images(self):
         self.bullet_surf = pygame.image.load(join('images', 'gun', 'bullet.png')).convert_alpha()
@@ -78,6 +78,9 @@ class Game:
             self.display_surface.fill('black')
             self.all_sprites.draw(self.player.rect.center) #camera should follow the player
             pygame.display.update()
+            print(self.bullet_sprites)
+
+
         pygame.quit()
 
 if __name__ == '__main__':
