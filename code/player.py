@@ -17,8 +17,13 @@ class Player(pygame.sprite.Sprite):
     def load_images(self):
         self.frmes = {'left': [], 'right': [],'up':[], 'down': []}
 
-    for info in walk(join('images', 'player')):
-        print(info)
+    for state in self.frames.keys(): #what the player is doing so absically like up adn dwon etc
+        for folder_path, sub_folders, file_names in walk(join('images', 'player', state)):
+            if file_names:
+                for file_name in file_names:
+                    full_path = join(folder_path, file_name)
+                    surf = pygame.image.load(full_path).convert_alpha()
+        
 
     def input(self):
         keys = pygame.key.get_pressed() #i think this means it reads whichever key is inputted, sso pressed....
