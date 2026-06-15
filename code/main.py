@@ -23,6 +23,10 @@ class Game:
 
         #sprites
     
+    def input(self):
+        if pygame.mouse.get_pressed()[0]:
+            print("shoot")
+
     def setup(self):
         map = load_pygame(join('data', 'maps', 'world.tmx'))    
         for x, y, image in map.get_layer_by_name('Ground').tiles():
