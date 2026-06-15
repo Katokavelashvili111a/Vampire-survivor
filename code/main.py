@@ -40,7 +40,7 @@ class Game:
 
     def run(self):
         while self.running:
-            #delta ttime
+            #delta time
             dt = self.clock.tick() / 1000
 
             #event loop 

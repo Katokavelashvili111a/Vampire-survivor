@@ -3,6 +3,7 @@ from settings import *
 class Player(pygame.sprite.Sprite):
     def __init__(self, pos, groups, collision_sprites):
         super().__init__(groups)
+        self.load_images()
         self.image = pygame.image.load(join('images', 'player', 'down', '0.png')).convert_alpha()
         self.rect = self.image.get_frect(center = pos)
         #pos = position (will be fetched from parameter)
@@ -12,6 +13,12 @@ class Player(pygame.sprite.Sprite):
         self.direction = pygame.Vector2() 
         self.speed = 500
         self.collision_sprites = collision_sprites
+
+    def load_images(self):
+        self.frmes = {'left': [], 'right': [],'up':[], 'down': []}
+
+    for info in walk(join('images', 'player')):
+        print(info)
 
     def input(self):
         keys = pygame.key.get_pressed() #i think this means it reads whichever key is inputted, sso pressed....
