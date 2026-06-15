@@ -21,12 +21,26 @@ class Game:
 
         self.setup()
 
-        #sprites
+        #gun timer
+        self.can_shoot = True
+        self.shoot_time = 0
+        self.gun_cooldown = 400
     
-    def input(self):
-        if pygame.mouse.get_pressed()[0]:
-            print("shoot")
+    def load_images(self):
+        self.bullet_surf = pygame.image.load(join('images', 'gun', 'bullet.png')).convert_alpha()
 
+    def input(self):
+        if pygame.mouse.get_pressed()[0] and self.can_shoot:
+            Bullet(surf, pos, direction, groups)
+            self.can_shoot = False
+            self.shoot_time = pygame.time.get_ticks()
+
+    def gun_timer(self):
+        if not self.can_shoot:
+            current_time = pygame.time.get_ticks()
+            if current_time - self.shoot_time >= self.gun_cooldown:
+                self.can_shoot = True
+    
     def setup(self):
         map = load_pygame(join('data', 'maps', 'world.tmx'))    
         for x, y, image in map.get_layer_by_name('Ground').tiles():
@@ -54,6 +68,8 @@ class Game:
                     self.running = False
             
             #update
+            self.gun_timer()
+            self.input()
             #this will make the sprites update with delta time so the time that passes between every frame will be very short
             self.all_sprites.update(dt)
             #draw
